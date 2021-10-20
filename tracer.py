@@ -32,13 +32,16 @@ try:
         # 추천 속도: 50 ~ 100
         # - 붙이면 반대로 돌아감
         if sensor.is_centered():
-            pass
+            motor.set_individual_speed(75, 75)
+            #pass
         elif sensor.is_left():  # 트레이서가 왼쪽으로 기울어진 경우
-            motor.set_individual_speed(..., ...)
+            motor.set_individual_speed(75, 0)
         elif sensor.is_right():  # 트레이서가 오른쪽으로 기울어진 경우
-            motor.set_individual_speed(..., ...)
+            motor.set_individual_speed(0, 75)
         else:
-            ...
+            motor.set_individual_speed(0, 0)
+            
+#            ...
 except KeyboardInterrupt:
     pass
 finally:
