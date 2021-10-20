@@ -29,7 +29,8 @@ class Sensor:
         return GPIO.input(self.RIR)
 
     def is_centered(self):
-        return self.middle_ipt == 0
+        return self.left_ipt == self.right_ipt and self.left_ipt != self.middle_ipt
+        # return self.middle_ipt == 0
 
     def is_left(self):
         return self.right_ipt == 0
