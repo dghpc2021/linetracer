@@ -33,7 +33,7 @@ class Sensor:
         # return self.middle_ipt == 0
 
     def is_left(self):
-        return self.right_ipt == 0
+        return self.left_ipt == self.middle_ipt and self.left_ipt != self.right_ipt
 
     def is_right(self):
-        return self.left_ipt == 0
+        return self.right_ipt == self.middle_ipt and self.left_ipt != self.right_ipt
