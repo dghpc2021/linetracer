@@ -14,34 +14,17 @@ sensor = Sensor()
 try:
     motor.forward()
     while True:
-        """
-        direction = input("dir: ")
-        if direction.startswith("f"):
-            motor.forward()
-        elif direction.startswith("b"):
-            motor.backward()
-        elif direction.startswith("l"):
-            motor.left()
-        elif direction.startswith("r"):
-            motor.right()
-        ipt = int(input("speed: "))
-        motor.set_speed(ipt)
-        print(sensor.left_ipt, sensor.middle_ipt, sensor.right_ipt)
-        time.sleep(5)
-        """
         # 추천 속도: 50 ~ 100
         # - 붙이면 반대로 돌아감
         if sensor.is_centered():
-            motor.set_individual_speed(75, 75)
+            motor.set_individual_speed(60, 60)
             #pass
         elif sensor.is_left():  # 트레이서가 왼쪽으로 기울어진 경우
-            motor.set_individual_speed(75, 0)
+            motor.set_individual_speed(60, 0)
         elif sensor.is_right():  # 트레이서가 오른쪽으로 기울어진 경우
-            motor.set_individual_speed(0, 75)
+            motor.set_individual_speed(0, 60)
         else:
             motor.set_individual_speed(0, 0)
-            
-#            ...
 except KeyboardInterrupt:
     pass
 finally:
